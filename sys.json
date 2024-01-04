@@ -7,7 +7,7 @@
     "installed": true
   },
   "export": {
-    "path": "D:/output_test_clips",
+    "path": "./output_test_clips",
     "exported_videos": []
   }
 }
