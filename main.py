@@ -122,7 +122,7 @@ if video_folder and num_videos and song_folder:
     if is_overlay and overlay_folder is None:
         st.error("Make sure to specify an overlay path")
 
-    if export_folder and (not is_overlay or overlay_folder):
+    if not is_overlay or overlay_folder:
         if st.sidebar.button("Create Luxury"):
             if is_tiktok_content:
                 if download_more_videos:
