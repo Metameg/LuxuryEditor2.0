@@ -1,13 +1,15 @@
 {
   "requirements": {
     "name": [
+      "streamlit==1.26.0",
       "Pillow==9.4.0",
       "moviepy==1.0.3"
     ],
     "installed": true
   },
   "export": {
-    "path": "./output_test_clips",
-    "exported_videos": []
+    "path": "D:/output_test_clips",
+    "exported_videos": [
+    ]
   }
 }

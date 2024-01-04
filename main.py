@@ -9,13 +9,13 @@ FPS = 30
 overlay_folder = None
 is_overlay = False
 username = None
-is_tiktok_content = False
 is_custom_export = False
 download_more_videos = True
 video_folder = None
 song_folder = None
 videos = []
 clone_tiktok = True
+export_folder = 'output'
 
 st.title("Luxury AI")
 
@@ -47,7 +47,11 @@ if clone_tiktok:
                         st.video(tiktok)
 
                 video_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), username)
-                st.write(f"Video Folder {os.listdir(video_folder)}")
+
+
+                st.write(f"Video Folder {video_folder}")
+
+
                 if st.sidebar.checkbox("Import song from path"):
                     song_folder = st.sidebar.text_input("Song Folder Path")
                 elif st.sidebar.checkbox("Import a viral song"):
@@ -85,15 +89,6 @@ if video_folder:
             if st.sidebar.checkbox("Download more videos"):
                 download_more_videos = True
 
-    export_folder = st.sidebar.text_input("Export Folder Path", value=value)
-
-    if export_folder and open_json()["export"]["path"] != export_folder:
-        if st.sidebar.button("Save as new default export path"):
-            data = open_json()
-            data["export"]["path"] = export_folder
-            save_json(data)
-            st.toast("Successfully saved the export folder for default path")
-
     num_videos = st.sidebar.slider("Number of Videos to Use", 1, number_of_videos, min(20, number_of_videos))
     duration_length = st.sidebar.slider("Result Clips Duration (seconds)", 1, 90, 10)
     videos_count = st.sidebar.slider("Number of Luxury Clips to Create", 1, 10, 1)
@@ -124,9 +119,6 @@ if exported_videos_paths:
                 remove_video_path(exported_video_path)
 
 if video_folder and num_videos and song_folder:
-    if is_custom_export and not export_folder:
-        st.error("Make sure to specify an export path")
-
     if is_overlay and overlay_folder is None:
         st.error("Make sure to specify an overlay path")
 
