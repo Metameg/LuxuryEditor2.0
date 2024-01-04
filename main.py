@@ -47,7 +47,7 @@ if clone_tiktok:
                         st.video(tiktok)
 
                 video_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), username)
-                st.write(f"Video Folder {video_folder}")
+                st.write(f"Video Folder {os.listdir(video_folder)}")
                 if st.sidebar.checkbox("Import song from path"):
                     song_folder = st.sidebar.text_input("Song Folder Path")
                 elif st.sidebar.checkbox("Import a viral song"):
