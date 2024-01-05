@@ -117,6 +117,7 @@ def scrape(user: str, user_id: int = 0, count: int = 15, cursor: int = 0) -> lis
     }
     response = requests.get(url, headers=headers, params=querystring)
     if response.status_code == 200:
+        st.write("200")
         response_data = None
         try:
             response_data = response.json()
