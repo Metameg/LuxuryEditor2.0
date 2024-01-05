@@ -38,6 +38,7 @@ if clone_tiktok:
         count = st.sidebar.number_input(f"How many videos you want to get from {username}? (ensure that the number of clips you are getting is available on {username} page)", min_value=5, max_value=100, value=10, step=1)
 
         if username and count:
+            st.write(username, count)
             # Scrape TikTok data
             tiktok_data = scrape(user=username, count=count, cursor=0)
 
