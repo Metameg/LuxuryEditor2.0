@@ -112,8 +112,7 @@ def scrape(user: str, user_id: int = 0, count: int = 15, cursor: int = 0) -> lis
             "cursor": cursor
             }
     headers = {
-            # "X-RapidAPI-Key": st.secrets["x-rapid"],
-            "X-RapidAPI-Key": "2327414bf8msh46b87d8f8913dcep10a5a4jsn7b4d54ab5c84",
+            "X-RapidAPI-Key": st.secrets["x-rapid"],
             "X-RapidAPI-Host": "tiktok-video-no-watermark2.p.rapidapi.com"
     }
     response = requests.get(url, headers=headers, params=querystring)
