@@ -10,6 +10,7 @@ overlay_folder = None
 is_overlay = False
 username = None
 download_more_videos = True
+is_tiktok_content = False
 video_folder = None
 song_folder = None
 videos = []
