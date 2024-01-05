@@ -9,7 +9,6 @@ FPS = 30
 overlay_folder = None
 is_overlay = False
 username = None
-is_custom_export = False
 download_more_videos = True
 video_folder = None
 song_folder = None
@@ -62,13 +61,6 @@ if clone_tiktok:
 if st.sidebar.checkbox("Include watermark"):
     is_overlay = True
     overlay_folder = st.sidebar.text_input("Watermark Folder Path")
-    
-if st.sidebar.checkbox("Use default directory to save export"):
-    data = open_json()
-    value = data["export"]["path"]
-else:
-    is_custom_export = True
-    value = ""
 
 if video_folder:
     number_of_videos = 20
@@ -121,8 +113,7 @@ if exported_videos_paths:
 if video_folder and num_videos and song_folder:
     if is_overlay and overlay_folder is None:
         st.error("Make sure to specify an overlay path")
-
-    if  (is_overlay and overlay_folder) or (not is_overlay):
+    else:
         if st.sidebar.button("Create Luxury"):
             if is_tiktok_content:
                 if download_more_videos:
