@@ -2,6 +2,7 @@ import os
 import streamlit as st
 from func.req import *
 from func.create_collage import create_video_collage
+from func.transitions import ffmpeg_video_collage
 import json
 
 FPS = 30
@@ -120,4 +121,5 @@ if video_folder and num_videos and song_folder:
                 if download_more_videos:
                     # Download videos
                     download(tiktok_data, username)
-            create_video_collage(video_folder, num_videos, song_folder, overlay_folder, export_folder, videos_count, duration_length, is_tiktok_content)
+            ffmpeg_video_collage(video_folder, num_videos, song_folder, overlay_folder, export_folder, videos_count, duration_length, is_tiktok_content)
+            # create_video_collage(video_folder, num_videos, song_folder, overlay_folder, export_folder, videos_count, duration_length, is_tiktok_content)
